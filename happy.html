@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Starbucks Gift - Loading...</title>
+    <style>
+        body { 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            margin-top: 15%;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #00704A; /* Starbucks 綠色 */
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h2>Starbucks Gift 正在處理您的禮物...</h2>
+    <p id="status">請稍候，我們正在為您準備星巴克禮物！</p>
+    <div class="loader"></div>
+    
+    <script>
+        const messages = [
+            "請耐心等待，我們正在驗證您的禮品卡...",
+            "請稍等，我們正在與伺服器同步...",
+            "由於兌換人數過多，請稍後再試！",
+            "請不要關閉此頁面，正在處理您的請求...",
+            "感謝您的耐心等待，我們快完成了..."
+        ];
+        let index = 0;
+        
+        setInterval(() => {
+            document.getElementById("status").innerText = messages[index];
+            index = (index + 1) % messages.length;
+        }, 5000);
+    </script>
+</body>
+</html>
